@@ -1,19 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+        body {
+            background-color: #F4CAE0
+        }
+
+        .nav {
+            background-color:#AA336A ;
+            padding: 10px;
+            width: 100%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+
+        .navbar ul li{
+            list-style: none;
+            display: inline-block;
+            margin: 0 20px;
+            position: relative;
+            
+        }
+
+        .navbar ul li a{
+            text-decoration: none;
+            color: #FFFBED;
+            text-transform: uppercase;
+        }
+
+
+
+
+
+    </style>
     <title>Home Page</title>
 </head>
 <body>
-    <h1>Welcome to Group 1 Portfolio</h1>
 
-    <nav>
-        <ul>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/works">Works</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
-    
+    <div class = "nav">
+        <div class="navbar">
+            <a href="/">
+                <img src="{{ url_for('static', filename='logo.png') }}" class="logo">
+            </a>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/works">Works</a></li>
+                <li><a href="/contacts">Contacts</a></li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
 
