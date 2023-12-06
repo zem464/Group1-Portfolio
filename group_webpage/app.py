@@ -18,5 +18,9 @@ def work():
 def contact():
     return render_template('contacts.html')
 
+@app.route('/searchalgo')
+def searchalgo():
+    return render_template('searchalgo.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
