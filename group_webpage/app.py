@@ -10,13 +10,9 @@ def index():
 def profile():
     return render_template('profile.html')
 
-@app.route('/works', methods=['GET', 'POST'])
-def works():
-    result = None
-    if request.method == 'POST':
-        input_string = request.form.get('inputString', '')
-        result = input_string.upper()
-    return render_template('touppercase.html', result=result)
+@app.route('/work', methods=['GET', 'POST'])
+def work():
+    return render_template('work.html')
 
 @app.route('/contact')
 def contact():
