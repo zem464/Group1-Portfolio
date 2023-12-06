@@ -6,13 +6,19 @@
 <body>
     <h1>Welcome to Group 1 Portfolio</h1>
 
-    <nav>
-        <ul>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/works">Works</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
+    <div class="banner">
+        <div class="navbar">
+            <a href="/">
+                <img src="{{ url_for('static', filename='logo.png') }}" class="logo">
+            </a>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/works">Works</a></li>
+                <li><a href="/contacts">Contacts</a></li>
+            </ul>
+        </div>
+    </div>
     
 </body>
 </html>
