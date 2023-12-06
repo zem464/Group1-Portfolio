@@ -14,9 +14,9 @@ def profile():
 def work():
     return render_template('work.html')
 
-@app.route('/contact')
+@app.route('/contacts')
 def contact():
-    return "Contact Page. please create me an html page with dummy contact info"
+    return render_template('contacts.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

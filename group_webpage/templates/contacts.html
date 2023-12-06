@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #f3e6e6; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+
+        .container {
+            background-color: #d6e9d6; 
+            width: 40%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 600px; 
+}
+
+
+        .contact-info {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .contact-label {
+            font-weight: bold;
+        }
+
+        .contact-details {
+            color: #333;
+        }
+
+        .nav {
+            background-color:#AA336A ;
+        }
+
+        .navbar {
+            width: 95%;
+            margin: auto;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 110px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0 20px;
+            position: relative;
+
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #FFFBED;
+            text-transform: uppercase;
+            font-size: larger;
+            font-weight: bolder;
+        }
+
+        .navbar ul li::after {
+            content: ' ';
+            height: 3px;
+            width: 0%;
+            background: #D7B9D5;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+
+        .navbar ul li:hover:after {
+            width: 100%;
+        }
+
+        
+        footer {
+            background-color: #AA336A; 
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav">
+        <div class="navbar">
+            <a href="/">
+                <img src="{{ url_for('static', filename='logo.png') }}" class="logo">
+            </a>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/work">Works</a></li>
+                <li><a href="/contacts">Contacts</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="left-side">
+            <img src="https://media.tenor.com/NH6V_pFRmioAAAAC/cinnamoroll-sanrio.gif" alt="Cute Pink Gif">
+        </div>
+        <div class= "right-side">
+            <div class="contact-info">
+                <br><br>
+                <span class="contact-label">Email:</span>
+                <span class="contact-details">frfrwoof@gmail.com</span>
+                <br><br>
+                <span class="contact-label">Github:</span>
+                <span class="contact-details">zem464</span>
+                <br><br>
+                <span class="contact-label">Phone:</span>
+                <span class="contact-details">09991234567</span>
+                <br><br>
+                <span class="contact-label">Address:</span>
+                <span class="contact-details">PUP Sta. Mesa</span>
+                <br><br>
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy; 2023 Group One. All rights reserved.
+    </footer>
+
+</body>
+</html>
