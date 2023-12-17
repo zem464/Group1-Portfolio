@@ -2,135 +2,172 @@
 <html lang="en">
 <head>
     <title>Works of Group 1</title>
-</head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-<style>
+    <style>
         body {
-        background-color: #d1c8f8;            
-    }
-    
-    .nav {
-        background-color: #5f4abd ;
-    }
+            background: url('static/work.png') no-repeat center fixed; 
+            background-size: cover;          
+        }
 
-    .navbar {
-        width: 95%;
-        margin: auto;
-        padding: 10px 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+        .navbar {
+            width: 95%;
+            margin: auto;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-    .logo {
-        width: 100px;
-    }
+        .logo {
+            width: 100px;
+        }
 
-    .navbar ul {
-        list-style: none;
-        margin: 0;
-        display: flex;
-    }
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            display: flex;
+        }
 
-    .navbar ul li {
-        margin: 0 20px;
-        position: relative;
+        .navbar ul li {
+            margin: 0 20px;
+            position: relative;
 
-    }
+        }
 
-    .navbar ul li a {
-        text-decoration: none;
-        color: #FFFBED;
-        text-transform: uppercase;
-        font-size: larger;
-        font-weight: bolder;
-    }
-
-    .navbar ul li::after {
-        content: ' ';
-        height: 3px;
-        width: 0%;
-        background: #d8d2f3;
-        position: absolute;
-        left: 0;
-        bottom: -10px;
-        transition: 0.5s;
-    }
-
-    .navbar ul li:hover:after {
-        width: 100%;
-    }
-
-    h1 {
-        font-size: 40px;
-        color: #000000;
-        font-family: 'Lucida Console';
-        text-align: center; 
-        font-weight: bold;
-    }
-
-
-    .button{
-        text-align: center;
-        text-decoration: none;
-        font-size: 25px;
-        color: white;
-        margin-top: 90px;
-        font-family: 'Courier New', monospace;
-    }
-    .button1{
-            font-weight: bold;
-            position: absolute;
-            transform: translate(-50%, -50%);
-            padding: 15px 30px;
-            font-size: 24px;
-            cursor: pointer;
-            text-align: center;
+        .navbar ul li a {
             text-decoration: none;
-            outline: none;
             color: #FFFBED;
-            background-color: #472eb8;
+            text-transform: uppercase;
+            font-size: larger;
+            font-weight: bold;
+            font-family: 'Tabarra Sans', sans-serif;
+        }
+
+        .navbar ul li::after {
+            content: ' ';
+            height: 3px;
+            width: 0%;
+            background: #d8d2f3;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+
+        .navbar ul li:hover:after {
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 60px;
+            color: white ;
+            font-family: 'Tabarra Sans', sans-serif;
+            text-align: justify; 
+            font-weight: bold;
+            margin-left: 100px;
+            margin-top: auto;
+        }
+        
+        .h2{
+            font-size: 20px;
+            color: white;
+            font-family: 'Tabarra Sans', sans-serif;
+            text-align: justify;
+            font-weight: normal;
+            margin-left: 100px;
+            margin-top: -0.4in;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 6%;
+            z-index: 3;
+        }
+
+        .button {
             border: none;
-            border-radius: 15px;
-            box-shadow: 0 9px #BB9CC0;
-    }
+            cursor: pointer;
+            appearance: none;
+            background-color: inherit;
+            transition: transform .7s ease-in-out;
+            margin-right: -100px; 
+            position: relative;
+        }
 
-    .button:hover {background-color: #7c6bc9}
+        button:hover {
+            transform: scale(1.2);
+        }
 
-</style>    
+        .img {
+            width: 65%;
+        }
+          
+        .input {
+            padding: 10px;
+            border: 2px solid #314de4;
+            outline: none;
+            border-radius: 5px;
+            font-size: 24px;
+            color: #314de4;
+        }
+        
+        .text {
+            font-size: 60px;
+            color: #314de4;
+            font-family: Arial;
+        }
+    </style>    
+</head>
 
 <body>
-    <div>
-        <div class="nav">
-            <div class="navbar">
-                <a href="/">
-                    <img src="{{ url_for('static', filename='logo.png') }}" class="logo">
-                </a>
-                <ul style="font-family: 'Courier New', Courier, monospace;">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/profile">Profile</a></li>
-                    <li><a href="/works">Works</a></li>
-                    <li><a href="/contacts">Contacts</a></li>
-                </ul>
-            </div>
-        </div>
-
+    <div class="navbar">
+        <a href="/">
+            <img src="{{ url_for('static', filename='logo.png') }}" class="logo">
+        </a>
+        <ul style="font-family: 'Courier New', Courier, monospace;">
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/works">Works</a></li>
+            <li><a href="/contacts">Contacts</a></li>
+        </ul>
     </div>
     
-    <h1>
-        <p>Work of Group 1</p>
+    <h1 class="h1">
+        <p>LABORATORIES</p>
     </h1>
 
-    <hr>
+    <h2 class="h2">
+        <p>These are the works of Group 1. Yehey.</p>
+    </h2>
 
-    <div class = "button">
-        <div>
-            <a href="/searchalgo">
-                <button class="button button1">Group Laboratory Number 1</button>
-            </a>
+    <div class="button-container">
+        <a href="/searchalgoindex">
+            <button type="searchalgo" class="button" style="rotate: 356deg;">
+                <img src="static/1.png" alt="buttonpng" border="0" class="img" />
+            </button>
+        </a>
+
+        <a href="/infix_postfix">
+            <button type="searchalgo" class="button" style="rotate: 2deg;">
+                <img src="static/2.png" alt="buttonpng" border="0" class="img" />
+            </button>
+        </a>
+
+        <a href="/lab3">
+            <button type="lab3" class="button" style="rotate: 356deg;">
+                <img src="static/3.png" alt="buttonpng" border="0" class="img" />
+            </button>
+        </a>
+        
+        <a href="/more">
+            <button type="more" class="button" style="rotate: 3deg;">
+                <img src="static/4.png" alt="buttonpng" border="0" class="img" />
+            </button>
+        </a>
     </div>
-    
+
 </body>
 </html>

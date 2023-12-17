@@ -2,12 +2,19 @@
 <html>
 <head>
     <title>Profile Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
+    
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
-    body{
-        background-color: #D7B9D5;
-        font-family: 'Courier New', monospace
+    body {
+        background: url('static/profile.png') no-repeat center fixed; 
+        background-size: cover;
+        background-attachment: fixed;
+        position: absolute;
+        width: 100%;
     }
 
     .column1 {
@@ -24,25 +31,25 @@
     
     .group_desc{
         text-align: center;
-        font-family: Courier New, monospace;
+        font-family: 'Courier New', monospace;
+        padding-bottom: 10px;
     }
     
     .main {
         width: 1130px;
         max-width: 95%;
-        margin: 0 auto;
+        margin: auto;
         display: flex;
         align-items: center;
         font-style: bold;
-        font-family: Courier New, monospace; 
+        font-family: 'Courier New', monospace; 
     }
     
     .txt_bg {
         background-color: rgba(0, 0, 0, 0.501);
         padding: 5px 5px 5px 5px;
-    }
-    .nav {
-        background-color:#A663A3 ;
+        max-width: 350px;
+        display: block;
     }
 
     .navbar {
@@ -52,6 +59,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        font-family: 'Courier New', Courier, monospace;
     }
 
     .logo {
@@ -67,7 +75,6 @@
     .navbar ul li {
         margin: 0 20px;
         position: relative;
-
     }
 
     .navbar ul li a {
@@ -76,6 +83,7 @@
         text-transform: uppercase;
         font-size: larger;
         font-weight: bolder;
+        font-family: 'Tabarra Sans', sans-serif;
     }
 
     .navbar ul li::after {
@@ -92,76 +100,185 @@
     .navbar ul li:hover:after {
         width: 100%;
     }
+
+    .name {
+        display: block;
+        color: white; 
+        font-size: xx-large; 
+        font-style: normal; 
+        padding: auto; 
+        padding-bottom: 10px;
+        font-family: 'League Gothic', sans-serif;
+        letter-spacing: 1px;
+        overflow: hidden;
+        word-wrap: break-word;
+    }
+    
+    .li {
+        color: white; 
+        font-size: medium; 
+        font-style: normal; 
+        padding: auto; 
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .hr {
+        margin: 0;
+        margin-bottom: 10px;
+        width: 358px;
+    }
+
 </style>
 
 <body>
     
-    <div class="nav">
-        <div class="navbar">
-            <a href="/">
-                <img src="{{ url_for('static', filename='logo.png') }}" class="logo">
-            </a>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="/works">Works</a></li>
-                <li><a href="/contacts">Contacts</a></li>
-            </ul>
-        </div>
+    
+    <div class="navbar">
+        <a href="/">
+            <img src="{{ url_for('static', filename='logo.png') }}" class="logo">
+        </a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/works">Works</a></li>
+            <li><a href="/contacts">Contacts</a></li>
+        </ul>
     </div>
 
-    <p style =  "font-family: Courier New, monospace; text-align: center; font-size: 40px;"> <b>Group 1</b></p>
-
-    <hr>
+    <center><p style ="font: 'League Gothic'; font-weight: bolder; font-size: 50px;"><b>GROUP 1</b></p></center>
 
     <p style="font-family: Courier New, monospace; text-align: center;"><b>Members</b></p>
 
     <div style="display: block; flex-wrap: wrap; text-align: center;">
     <img src="https://scontent.fmnl3-3.fna.fbcdn.net/v/t1.15752-9/403415225_1077682820249014_2895983953588443522_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeElDWG5dywglkhG3tUKEIpWYZrNR-5tRothms1H7m1GixUl3equFF18Bi3g7-57qhjQCiygreQXXO6sjHM15hbi&_nc_ohc=CCdhHD504W0AX-4_rwO&_nc_ht=scontent.fmnl3-3.fna&oh=03_AdTCZ7jC1KxyXlvls3eKEsvnxDe5nS1yE6OazEoU0K8WYA&oe=6597BD54" alt="Group 1" width= "300px"; height="400px";>
     </div>
-    <p class= 'group_desc' > 7 Struggling Students</p>
+    <p class= 'group_desc'> 7 Struggling Students</p>
     
     <hr style="margin: 10px;">
 
-    
     <div style="display: flex; flex-wrap: wrap;">
 
         <div class="column1">
             <div class="main">
-                <img src="https://cdn.discordapp.com/attachments/1031145456153153539/1163660385161855086/BAAY2X2.jpeg?ex=6580fbaf&is=656e86af&hm=54ac4c64b8b097acce8ab778282ad2e19c4c5990b2585958ad7c3ff1de9e2a3c&" alt="Leigh" width="200px"; height="200px"; style = "display: block; margin: 20px;">
-                <p style="color: white; font-size: medium; font-style: normal; padding-right: 175px; text-align: justify; text-justify: inner-word;" class="txt_bg"><b>Frances Leigh G. Baay</b></p>
+                <img src="static/leigh.png" alt="Leigh" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                <ul style="color: white">
+                    <p style="color: white; font-style: normal; padding-right: 175px;">
+                        <b class="name">Frances Leigh G. Baay</b>
+                        <hr class="hr">
+                        <div class="txt_bg">
+                            <div class="li">
+                            <li style="margin-left: 19px;">INTP</li>
+                            <li style="margin-left: 19px;">Pisces</li>
+                            <li style="margin-left: 19px;">Green</li>
+                            </div>
+                        </div>
+                    </p>
+                </ul>
             </div>
             
             <div class="main">
-                <img src="https://cdn.discordapp.com/attachments/1031145456153153539/1163664355716505640/IMG_9146.jpg?ex=6580ff62&is=656e8a62&hm=ec90b3502f3031bb9e84c8453adfa959dda5c13d25397ec68eeda657d678107e&" alt="Ken" width="200px"; height="200px"; style = "display: block; margin: 20px;">
-                <p style="color: white; font-size: medium; font-style: normal; padding-right: 175px; text-align: justify; text-justify: inner-word;" class="txt_bg"><b>Ken Andrea G. Legaspi</b></p>
+                <img src="static/ken.png" alt="Ken" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                <ul style="color: white">
+                    <p style="color: white; font-style: normal; padding-right: 175px;">
+                        <b class="name">Ken Andrea G. Legaspi</b>
+                        <hr class="hr">
+                        <div class="txt_bg">
+                            <div class="li">
+                            <li style="margin-left: 19px;">INFJ</li>
+                            <li style="margin-left: 19px;">Sagittarius</li>
+                            <li style="margin-left: 19px;">Pink</li>
+                            </div>
+                        </div>
+                    </p>
+                </ul>
             </div>
 
             <div class="main">
-                <img src="https://cdn.discordapp.com/attachments/1031145456153153539/1163661277676195850/3060B65A-E901-4352-A67A-9943B94B2CA3.png?ex=6580fc84&is=656e8784&hm=530703399b792b02177e03b4e8d93aeca4ab482c499f0baad3309bc7bb8b1e48&" alt="Elle" width="200px"; height="200px"; style = "display: block; margin: 20px;">
-                <p style="color: white; font-size: medium; font-style: normal; padding-right: 175px; text-align: justify; text-justify: inner-word;" class="txt_bg"><b>Ella Marie A. Mallari</b></p>
+                <img src="static/elle.png" alt="Elle" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                <ul style="color: white">
+                    <p style="color: white; font-style: normal; padding-right: 175px;">
+                        <b class="name">Ella Marie A. Mallari</b>
+                        <hr class="hr">
+                        <div class="txt_bg">
+                            <div class="li">
+                            <li style="margin-left: 19px;">ISFP</li>
+                            <li style="margin-left: 19px;">Leo</li>
+                            <li style="margin-left: 19px;">Green</li>
+                            </div>
+                        </div>
+                    </p>
+                </ul>
             </div>
 
             <div class="main">
-                <img src="https://cdn.discordapp.com/attachments/1031145456153153539/1163660765471977542/1660721666828.jpg?ex=6580fc0a&is=656e870a&hm=1e8e1484ab37eac8dfa28a4a996c5c4b914490b0ee5c05600271bf72f22d6ce1&" alt="Iris" width="200px"; height="200px"; style = "display: block; margin: 20px;">
-                <p style="color: white; font-size: medium; font-style: normal; padding-right: 135px; text-align: justify; text-justify: inner-word;" class="txt_bg"><b>Zemerelin Iris M. Membrere</b></p>
+                <img src="static/iris.png" alt="Iris" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                <ul style="color: white">
+                    <p style="color: white; font-style: normal; padding-right: 175px;">
+                        <b class="name" style="letter-spacing: 0px;">Zemerelin Iris M. Membrere</b>
+                        <hr class="hr">
+                        <div class="txt_bg">
+                            <div class="li">
+                            <li style="margin-left: 19px;">INFJ</li>
+                            <li style="margin-left: 19px;">Aries</li>
+                            <li style="margin-left: 19px;">Pink</li>
+                            </div>
+                        </div>
+                    </p>
+                </ul>
             </div>
+
         </div>
         
         <div class="column2">
             <div class="main">
-                <img src="https://cdn.discordapp.com/attachments/1031145456153153539/1163660003278852176/PABUNA_KATRINA_B..jpg?ex=6580fb54&is=656e8654&hm=dcf0773c83266afb8146da0bef3b2330176e96e09fab7409d39490e33c790ca8&" alt="Kat" width="200px"; height="200px"; style = "display: block; margin: 20px;">
-                <p style="color: white; font-size: medium; font-style: normal; padding-right: 195px; text-align: justify; text-justify: inner-word;" class="txt_bg"><b>Katrina B. Pabuna</b></p>
+                <img src="static/kat.png" alt="Kat" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                <ul style="color: white">
+                    <p style="color: white; font-size: medium; font-style: normal; padding-right: 175px;">
+                        <b class="name">Katrina B. Pabuna</b>
+                        <hr class="hr">
+                        <div class="txt_bg">
+                            <div class="li">
+                            <li style="margin-left: 19px;">ISFP</li>
+                            <li style="margin-left: 19px;">Aries</li>
+                            <li style="margin-left: 19px;">Green</li>
+                            </div>
+                        </div>
+                    </p>
+                </ul>
             </div>
 
             <div class="main">
-                <img src="https://cdn.discordapp.com/attachments/1031145456153153539/1181887785989324830/pic.png?ex=6582b1c6&is=65703cc6&hm=2c837e0a93f9b00cd4309538f20c8e3130067a5fdc6350001dc4292d997398cb&" alt="Kai" width="200px"; height="200px"; style = "display: block; margin: 20px;">
-                <p style="color: white; font-size: medium; font-style: normal; padding-right: 175px; text-align: justify; text-justify: inner-word;" class="txt_bg"><b>Jhon Kaiser R. Sajo</b></p>
+                <img src="static/kai.png" alt="Kai" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                <ul style="color: white">
+                    <p style="color: white; font-size: medium; font-style: normal; padding-right: 175px;">
+                        <b class="name">Jhon Kaiser R. Sajo</b>
+                        <hr class="hr">
+                        <div class="txt_bg">
+                            <div class="li">
+                            <li style="margin-left: 19px;">ENTP</li>
+                            <li style="margin-left: 19px;">Sagittarius</li>
+                            <li style="margin-left: 19px;">Blue</li>
+                            </div>
+                        </div>
+                    </p>
+                </ul>
             </div>
 
             <div class="main">
-                <img src="https://cdn.discordapp.com/attachments/1031145456153153539/1163663266573205555/IMG_7196.jpg?ex=6580fe5e&is=656e895e&hm=5b92db6a871e3d1648fde71879beebedcceea148f12def1c8faf63ea3128535c&" alt="Bekah" width="200px"; height="200px"; style = "display: block; margin: 20px;">
-                <p style="color: white; font-size: medium; font-style: normal; padding-right: 160px; text-align: justify; text-justify: inner-word;" class="txt_bg"><b>Rebekah Joy E. Sevial</b></p>
+                <img src="static/bekah.png" alt="Bekah" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                <ul style="color: white">
+                    <p style="color: white; font-size: medium; font-style: normal; padding-right: 175px;" >
+                        <b class="name">Rebekah Joy E. Sevial</b>
+                        <hr class="hr">
+                        <div class="txt_bg">
+                            <div class="li">
+                            <li style="margin-left: 19px;">INFP</li>
+                            <li style="margin-left: 19px;">Aries</li>
+                            <li style="margin-left: 19px;">Red</li>
+                            </div>
+                        </div>
+                    </p>
+                </ul>
             </div>
         </div>
         </div>
