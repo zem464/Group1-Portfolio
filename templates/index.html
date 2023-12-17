@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<style>
+    body {
+        background: url('static/index.png') no-repeat center fixed;
+        background-size: cover;
+        font-family: 'Courier New', monospace;
+        overflow: hidden;
+    }
+
+    .container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        margin-top: 30px;
+    }
+
+    .content {
+        position: absolute;
+        top: 67%;
+        left: 30%;
+        transform: translate(-50%, -50%);
+    }
+
+    .content button{
+        font-weight: bold;
+        padding: 15px 30px;
+        font-size: 24px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #000000;
+        background-color: #FFC348;
+        border: none;
+        border-radius: 15px;
+    }
+
+    .content button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    }
+
+    .content button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+    }
+
+    .content button:hover span {
+    padding-right: 25px;
+    }
+
+    .content button:hover span:after {
+    opacity: 1;
+    right: 0;
+    }
+
+    .navbar {
+        width: 95%;
+        margin: auto;
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .navbar ul {
+        list-style: none;
+        margin: 0;
+        display: flex;
+    }
+
+    .navbar ul li {
+        margin: 0 20px;
+        position: relative;
+
+    }
+
+    .navbar ul li a {
+        text-decoration: none;
+        color: #FFFBED;
+        text-transform: uppercase;
+        font-size: larger;
+        font-weight: bolder;
+        font-family: 'Tabarra Sans', sans-serif;
+    }
+
+    .navbar ul li::after {
+        content: ' ';
+        height: 3px;
+        width: 0%;
+        background: #D7B9D5;
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        transition: 0.5s;
+    }
+
+    .navbar ul li:hover:after {
+        width: 100%;
+    }
+
+    .bgtext {
+        position: relative;
+        width: 100%;
+        max-width: 100%; 
+        height: auto; 
+        text-align: center;
+        background-size: cover; 
+        object-fit: cover;
+    }
+
+</style>
+<title>Home Page</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">
+            <img src="{{ url_for('static', filename='logo.png') }}" class="logo">
+        </a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/works">Works</a></li>
+            <li><a href="/contacts">Contacts</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <img src="{{ url_for('static', filename='bgtext.png') }}" class="bgtext">
+        <div class="content">
+            <div style="display: block;">
+                <a href="/works">
+                    <button type="button"><span>Learn More </span></button>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -10,27 +10,14 @@ from ternary_search import ternary_search, ternary_search_wrapper
 
 app = Flask(__name__)
 
-@app.route('/')
+
+
+@app.route("/", methods=["GET", "POST"])
 def index():
-    return render_template('index.html')
-
-@app.route('/profile')
-def profile():
-    return render_template('profile.html')
-
-@app.route('/works', methods=['GET', 'POST'])
-def works():
-    return render_template('works.html')
-
-@app.route('/contacts')
-def contact():
-    return render_template('contacts.html')
-
-@app.route('/searchalgo', methods=["GET", "POST"])
-def searchalgo():
+    
     numbers = range(1, 101)
     test_data = ", ".join(map(str, numbers))
-
+    #print(test_data)
     if request.method == "POST":
         array_str = request.form.get("array")
         target_str = request.form.get("target")
@@ -72,7 +59,10 @@ def searchalgo():
         except ValueError:
             return render_template("index.html", error="Invalid input. Ensure the array and target are integers.")
     
-    return render_template('searchalgo.html', test_data=test_data)
+
+    return render_template("index.html",test_data=test_data)
+
+
 
 @app.route("/search", methods=["POST"])
 def search():

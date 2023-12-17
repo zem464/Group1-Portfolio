@@ -1,19 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #F4CAE0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .content {
+            width: 100%;
+            position: absolute;
+            margin-top: 90px;
+            text-align: center;
+
+        }
+
+        .content button{
+            font-weight: bold;
+            position: absolute;
+            transform: translate(-50%, 30%);
+            padding: 15px 30px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #FFFBED;
+            background-color: #e3a0bf;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #AA336A;
+        }
+
+        .welcome {
+            font-family: 'Lucida Console';
+            text-align: center;
+            margin-top: 35px; 
+            color: #AA336A;
+            font-size: larger;
+        }
+
+        .descrip {
+            text-align: center; 
+            font-weight: bolder;
+            font-size: 20px;
+        }
+
+        .nav {
+            background-color:#AA336A ;
+        }
+
+        .navbar {
+            width: 95%;
+            margin: auto;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 100px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #FFFBED;
+            text-transform: uppercase;
+            font-size: larger;
+            font-weight: bolder;
+        }
+
+        .navbar ul li::after {
+            content: ' ';
+            height: 3px;
+            width: 0%;
+            background: #D7B9D5;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+
+        .navbar ul li:hover:after {
+            width: 100%;
+        }
+    </style>
     <title>Home Page</title>
 </head>
 <body>
-    <h1>Welcome to Group 1 Portfolio</h1>
+    <div class="nav">
+        <div class="navbar">
+            <a href="/">
+                <img src="{{ url_for('static', filename='logo.png') }}" class="logo">
+            </a>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/works">Works</a></li>
+                <li><a href="/contacts">Contacts</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class = "welcome">
+        <h1>WELCOME TO OUR GROUP'S WEBSITE!</h1>
+    </div>
+    <div class = "descrip">
+        <p>We are a group of 2nd Year Computer Engineering students from Polytechnic  
+            <br> University of the Philippines - Main Campus. This is our requirement 
+            <br> for Data Structures and Algorithms.  </p>
+    </div>
 
-    <nav>
-        <ul>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/works">Works</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
-    
+    <div class = "content">
+        <div>
+            <a href="/works">
+            <button type="button">Check our works here → </button>
+            </a>
+        </div>
+    </div>
 </body>
 </html>
-
