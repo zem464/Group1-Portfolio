@@ -1,19 +1,12 @@
 import timeit
-<<<<<<< HEAD
 from flask import Flask, send_file, render_template, request, jsonify
-=======
-from flask import Flask, render_template, request, jsonify
->>>>>>> 3d4e31dac5dfb352d251df171bde49797cda7a0e
 from exponential_search import exponential_search, exponential_search_wrapper
 from binary_search import binary_search, binary_search_wrapper
 from interpolation_search import interpolation_search, interpolation_search_wrapper
 from jump_search import jump_search, jump_search_wrapper
 from linear_search import linear_search, linear_search_wrapper
 from ternary_search import ternary_search, ternary_search_wrapper
-<<<<<<< HEAD
 from infix_postfix import Stack
-=======
->>>>>>> 3d4e31dac5dfb352d251df171bde49797cda7a0e
 
 app = Flask(__name__)
 
@@ -33,7 +26,6 @@ def work():
 def contact():
     return render_template('contacts.html')
 
-<<<<<<< HEAD
 @app.route('/lab3')
 def lab3():
     return render_template('lab3.html')
@@ -92,10 +84,6 @@ def searchalgo1():
 
 @app.route('/searchalgo2', methods=["GET", 'POST'])
 def searchalgo2():
-=======
-@app.route('/searchalgo', methods=["GET", 'POST'])
-def searchalgo():
->>>>>>> 3d4e31dac5dfb352d251df171bde49797cda7a0e
     numbers = range(1, 1001)
     test_data = ", ".join(map(str, numbers))
 
@@ -114,21 +102,13 @@ def searchalgo():
 
             if search_type == "exponential":
                 execution_time = timeit.timeit("exponential_search_wrapper(exponential_search, array, target)", globals={**globals(), "array": array, "target": target}, number=1) * 1000 
-<<<<<<< HEAD
                 result = exponential_search_wrapper(exponential_search, array, target)
-=======
-                result = exponential_search_wrapper(binary_search, array, target)
->>>>>>> 3d4e31dac5dfb352d251df171bde49797cda7a0e
             elif search_type == "binary":
                 execution_time = timeit.timeit("binary_search_wrapper(binary_search, array, target)", globals={**globals(), "array": array, "target": target}, number=1) * 1000 
                 result = binary_search_wrapper(binary_search, array, target)
             elif search_type == "interpolation":
                 execution_time = timeit.timeit("interpolation_search_wrapper(interpolation_search, array, target)", globals={**globals(), "array": array, "target": target}, number=1) * 1000 
-<<<<<<< HEAD
                 result = interpolation_search_wrapper(jump_search, array, target)                
-=======
-                result = interpolation_search_wrapper(interpolation_search, array, target)                
->>>>>>> 3d4e31dac5dfb352d251df171bde49797cda7a0e
             elif search_type == "jump":
                 execution_time = timeit.timeit("jump_search_wrapper(jump_search, array, target)", globals={**globals(), "array": array, "target": target}, number=1) * 1000 
                 result = jump_search_wrapper(interpolation_search, array, target)  
@@ -139,7 +119,6 @@ def searchalgo():
                 execution_time = timeit.timeit("ternary_search_wrapper(ternary_search, array, target, low, high)", globals={**globals(), "array": array, "target": target, "low": low, "high": high}, number=1) * 1000 
                 result = ternary_search_wrapper(ternary_search, array, target, low, high)  
 
-<<<<<<< HEAD
             return render_template("searchalgo2.html", result=result, search_type=search_type, execution_time=execution_time, test_data=test_data)
         except ValueError:
             return render_template("searchalgo2.html", error="Invalid input. Ensure the array and target are integers.")
@@ -206,13 +185,6 @@ def if_pf():
 def download_file():
     p = "results\Group 1-Search_Algorithms.pdf"
     return send_file(p, as_attachment=True)
-=======
-            return render_template("searchalgo.html", result=result, search_type=search_type, execution_time=execution_time, test_data=test_data)
-        except ValueError:
-            return render_template("searchalgo.html", error="Invalid input. Ensure the array and target are integers.")
-
-    return render_template('searchalgo.html', test_data=test_data)
->>>>>>> 3d4e31dac5dfb352d251df171bde49797cda7a0e
 
 
 if __name__ == "__main__":
