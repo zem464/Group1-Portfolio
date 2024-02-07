@@ -11,15 +11,21 @@
 
     This will serve as the group's portfolio containing the laboratory works in the subject Data Structures and Algorithms.
 
+    This webpage also contains the individual website of the members which can be found in the profile tab.
+
 ## About the Laboratories
 
     1. Search Algorithm Comparison
 
     2. Infix to Postfix
 
-    3. Soon...
+    3. Queue and Deque
 
-    4. Soon...
+    4. Hash
+
+    5. Graph
+
+    6. Sorting Algorithm Comparison
 
 ## Members
 
