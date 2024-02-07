@@ -78,7 +78,7 @@
         color: black;
         font-family: "Tabarra Sans", 'Courier New', Courier, monospace;
         font-weight: bold;
-        font-size: x-large;
+        font-size: medium;
         margin: auto;
     }
 
@@ -108,7 +108,7 @@
     .column1 {
         width: 50%; 
         box-sizing: border-box; 
-        padding: 10px;
+        padding: 5px;
         float: left;
         margin-top: 100px;
     }
@@ -116,9 +116,9 @@
     .column2 {
         width: 50%; 
         box-sizing: border-box; 
-        padding: 10px;
+        padding: 5px;
         float: right;
-        margin-top: 60px;
+        margin-top: 100px;
     }
     
     .label{
@@ -153,7 +153,7 @@
         position: relative;
         width: 100px;
         height: 40px;
-        background-color: white;
+        background-color: #FFBD59;
         margin-top: 50px;
         margin-left: 100px;
         border-radius: 100px;
@@ -188,12 +188,14 @@
     </div>
     
     <div class="column2">
-        <center>
         <div class="result">
             <div class="result_txt">
                 {% if result %}
-                <p class="result_head"> Infix Expression: </p> 
-                <p class="result_values"> {{ infix_expression }} </p>
+                    <p class="result_head"> Infix Expression: </p> 
+                    <p class="result_values"> {{ infix_expression }} </p>
+                {% else %}
+                    <p class="result_head"><strong>Waiting for input...</strong></p>
+                {% endif %}
             </div>
         </div>
 
@@ -209,10 +211,8 @@
                 </ul>
                 <p class="result_head"> Postfix Expression: </p>
                 <p class="result_values"> {{ result }} </p>
-                {% endif %}
             </div>
         </div>
-        </center>
     </div>
 
 </body>

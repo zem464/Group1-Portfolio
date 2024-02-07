@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Sort</title>
+</head>
+
+<style>
+    body {
+        background: url('static/ifpf.png') no-repeat center fixed;
+        background-size: cover;
+        margin: 0;
+        font-family: "Tabarra Sans", 'Courier New', Courier, monospace;
+    }
+
+    .navbar {
+        width: 95%;
+        margin: auto;
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .navbar ul {
+        list-style: none;
+        margin: 0;
+        display: flex;
+    }
+
+    .navbar ul li {
+        margin: 0 20px;
+        position: relative;
+    }
+
+    .navbar ul li a {
+        text-decoration: none;
+        color: #FFFBED;
+        text-transform: uppercase;
+        font-size: larger;
+        font-weight: bolder;
+        font-family: 'Tabarra Sans', sans-serif;
+    }
+
+    .navbar ul li::after {
+        content: ' ';
+        height: 3px;
+        width: 0%;
+        background: #d8d2f3;
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        transition: 0.5s;
+    }
+
+    .navbar ul li:hover:after {
+        width: 100%;
+    }
+
+    .label {
+        font-weight: 500;
+        font-size: xx-large;
+        color: white;
+        text-align: center;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .column-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .column1 {
+        flex: auto;
+        box-sizing: border-box;
+        padding: 5px;
+        margin: 0;
+        margin-left: 20%;
+    }
+
+    .column2 {
+        box-sizing: border-box;
+        padding: 5px;
+        margin-right: 20%;
+    }
+
+    .input_label {
+        font-weight: 300;
+        color: white;
+        margin-left: 40px;
+    }
+
+    .input_box {
+        display: block;
+        text-align: center;
+        position: relative;
+        width: 300px;
+        height: 40px;
+        background-color: white;
+        margin-top: 20px;
+        border-radius: 100px;
+    }
+
+    button {
+        font-weight: 500;
+        display: block;
+        position: relative;
+        width: 200px;
+        height: 40px;
+        background-color: #FFBD59;
+        margin-top: 20px;
+        margin-left: 50px;
+        border-radius: 100px;
+        cursor: pointer;
+    }
+
+    #visualization {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .bar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        border: 1px solid #fff;
+        padding: 0 5px;
+    }
+
+    .bar span {
+        color: white;
+        font-size: small;
+        margin-top: 3px;
+    }
+
+    .comparison {
+        background-color: #FFBD59 !important;
+    }
+
+    .swap {
+        background-color: green !important;
+    }
+</style>
+
+<body>
+    <div class="navbar">
+        <a href="/">
+            <img src="{{ url_for('static', filename='logo.png') }}" class="logo">
+        </a>
+        <ul style="font-family: 'Courier New', Courier, monospace;">
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/works">Works</a></li>
+            <li><a href="/contacts">Contacts</a></li>
+        </ul>
+    </div>
+
+    <p class="label">MERGE SORT</p>
+
+    <div class="column-container">
+        <div class="column1">
+            <form id="mergeForm">
+                <div>
+                    <label for="data" class="input_label">Enter number of elements:</label>
+                    <input type="number" id="data" name="data" class="input_box" min="1">
+                    <button type="button" onclick="generateBars()">Generate Bars</button>
+                </div>
+                <div id="buttons">
+                    <button type="button" onclick="startMergeSortAsc()">Start Sorting - Ascending</button>
+                    <button type="button" onclick="startMergeSortDesc()">Start Sorting - Descending</button>
+                    <button type="button" onclick="clearBars()">Clear</button>
+                </div>
+            </form>
+        </div>
+        <div class="column2">
+            <div id="visualization">
+                <!-- Visualization of sorting will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let bars = [];
+
+        function generateBars() {
+            const numElements = document.getElementById("data").value;
+            if (numElements <= 0 || isNaN(numElements)) {
+                alert("Please enter a valid number of elements!");
+                return;
+            }
+
+            bars = Array.from({ length: numElements }, () => Math.floor(Math.random() * 100) + 1);
+            visualizeBars();
+        }
+
+        function visualizeBars() {
+            const visualizationDiv = document.getElementById("visualization");
+            visualizationDiv.innerHTML = "";
+
+            for (let i = 0; i < bars.length; i++) {
+                const bar = document.createElement("div");
+                bar.className = "bar";
+                bar.style.height = bars[i] * 5 + "px";
+                bar.style.width = "20px";
+                bar.style.marginRight = "4px";
+                bar.style.backgroundColor = "#63ace5";
+
+                const span = document.createElement("span");
+                span.innerText = bars[i];
+                span.style.justifyContent = "flex-end";
+                bar.appendChild(span);
+
+                visualizationDiv.appendChild(bar);
+            }
+        }
+
+        async function mergeSort(start, end) {
+            if (start < end) {
+                const mid = Math.floor((start + end) / 2);
+
+                await mergeSort(start, mid);
+                await mergeSort(mid + 1, end);
+                await merge(start, mid, end);
+            }
+        }
+
+        async function merge(start, mid, end) {
+            const left = bars.slice(start, mid + 1);
+            const right = bars.slice(mid + 1, end + 1);
+
+            let i = 0,
+                j = 0,
+                k = start;
+
+            while (i < left.length && j < right.length) {
+                visualizeBars();
+                highlightBars([start + i, mid + 1 + j], "comparison");
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+                if (left[i] <= right[j]) {
+                    bars[k] = left[i];
+                    i++;
+                } else {
+                    bars[k] = right[j];
+                    j++;
+                }
+
+                visualizeBars();
+                removeHighlightBars([start + i - 1, mid + 1 + j - 1], "comparison");
+                highlightBars([k], "swap");
+                await new Promise(resolve => setTimeout(resolve, 500));
+                removeHighlightBars([k], "swap");
+
+                k++;
+            }
+
+            while (i < left.length) {
+                bars[k] = left[i];
+                i++;
+                k++;
+
+                visualizeBars();
+                highlightBars([k - 1], "swap");
+                await new Promise(resolve => setTimeout(resolve, 500));
+                removeHighlightBars([k - 1], "swap");
+            }
+
+            while (j < right.length) {
+                bars[k] = right[j];
+                j++;
+                k++;
+
+                visualizeBars();
+                highlightBars([k - 1], "swap");
+                await new Promise(resolve => setTimeout(resolve, 500));
+                removeHighlightBars([k - 1], "swap");
+            }
+        }
+
+        async function startMergeSortAsc() {
+            if (bars.length === 0) {
+                alert("Please generate bars first!");
+                return;
+            }
+
+            await mergeSort(0, bars.length - 1);
+            visualizeBars();
+        }
+
+        async function startMergeSortDesc() {
+            if (bars.length === 0) {
+                alert("Please generate bars first!");
+                return;
+            }
+
+            // Update the comparison function for descending order
+            async function mergeDesc(start, mid, end) {
+                const left = bars.slice(start, mid + 1);
+                const right = bars.slice(mid + 1, end + 1);
+
+                let i = 0,
+                    j = 0,
+                    k = start;
+
+                while (i < left.length && j < right.length) {
+                    visualizeBars();
+                    highlightBars([start + i, mid + 1 + j], "comparison");
+                    await new Promise(resolve => setTimeout(resolve, 500));
+
+                    // Reverse the comparison for descending order
+                    if (left[i] >= right[j]) {
+                        bars[k] = left[i];
+                        i++;
+                    } else {
+                        bars[k] = right[j];
+                        j++;
+                    }
+
+                    visualizeBars();
+                    removeHighlightBars([start + i - 1, mid + 1 + j - 1], "comparison");
+                    highlightBars([k], "swap");
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                    removeHighlightBars([k], "swap");
+
+                    k++;
+                }
+
+                while (i < left.length) {
+                    bars[k] = left[i];
+                    i++;
+                    k++;
+
+                    visualizeBars();
+                    highlightBars([k - 1], "swap");
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                    removeHighlightBars([k - 1], "swap");
+                }
+
+                while (j < right.length) {
+                    bars[k] = right[j];
+                    j++;
+                    k++;
+
+                    visualizeBars();
+                    highlightBars([k - 1], "swap");
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                    removeHighlightBars([k - 1], "swap");
+                }
+            }
+
+            // Perform descending merge sort
+            async function mergeSortDesc(start, end) {
+                if (start < end) {
+                    const mid = Math.floor((start + end) / 2);
+
+                    await mergeSortDesc(start, mid);
+                    await mergeSortDesc(mid + 1, end);
+                    await mergeDesc(start, mid, end);
+                }
+            }
+
+            await mergeSortDesc(0, bars.length - 1);
+            visualizeBars();
+        }
+
+        function clearBars() {
+            bars = [];
+            visualizeBars();
+        }
+
+        function highlightBars(indices, className) {
+            indices.forEach(index => {
+                const bar = document.getElementsByClassName("bar")[index];
+                if (bar) {
+                    bar.classList.add(className);
+                }
+            });
+        }
+
+        function removeHighlightBars(indices, className) {
+            indices.forEach(index => {
+                const bar = document.getElementsByClassName("bar")[index];
+                if (bar) {
+                    bar.classList.remove(className);
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>

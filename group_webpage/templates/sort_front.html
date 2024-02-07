@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Sorting Algorithms</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        background: url('static/work.png') no-repeat center fixed; 
+        background-size: cover;          
+    }
+
+    .navbar {
+        width: 95%;
+        margin: auto;
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .navbar ul {
+        list-style: none;
+        margin: 0;
+        display: flex;
+    }
+
+    .navbar ul li {
+        margin: 0 20px;
+        position: relative;
+    }
+
+    .navbar ul li a {
+        text-decoration: none;
+        color: #FFFBED;
+        text-transform: uppercase;
+        font-size: larger;
+        font-weight: bolder;
+        font-family: 'Tabarra Sans', sans-serif;
+    }
+
+    .navbar ul li::after {
+        content: ' ';
+        height: 3px;
+        width: 0%;
+        background: #d8d2f3;
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        transition: 0.5s;
+    }
+
+    .navbar ul li:hover:after {
+        width: 100%;
+    }
+
+    .button-container {
+        position: absolute;
+        margin-top: 25px;
+        right: 250px;
+        top: 50%; 
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button1 {
+        background-color: #FFBD59;
+        border: none;
+        color: black;
+        font-family: "Tabarra Sans", 'Courier New', Courier, monospace;
+        padding: 14px 56px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: x-large;
+        border-radius: 10px;
+        transition: 0.5s;
+    }
+    
+    .button:hover {background-color: #c2bed4}
+
+    .algo {
+        width: 70%; 
+        display: flex;
+        height: 55vh;
+        align-items: center;
+        margin-right: 70%; 
+        padding-right: 20px; 
+        margin-bottom: 30px; 
+    }
+
+    .col h1 {
+        font-size: 56px;
+        margin-bottom: 10px;
+        margin-top: 0;
+        margin-left: 80px; 
+        margin-right: 0;
+        color: white;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .col {
+        box-sizing: border-box; 
+        padding: 10px;
+        margin-top: 50px;
+        margin-left: 100px;
+    }
+
+    .label {
+        font-family: "Tabarra Sans", 'Courier New', Courier, monospace;
+        font-weight: 500;
+        font-size: 50px;
+        color: white;
+    }
+
+    .desc {
+        font-family: "Tabarra Sans", 'Courier New', Courier, monospace;
+        font-weight: 500;
+        font-size: 25px;
+        color: white;
+    }
+
+    .result_label {
+        font-family: "Tabarra Sans", 'Courier New', Courier, monospace;
+        font-weight: 500;
+        font-size: 15px;
+        color: white;
+        text-align: center;
+        margin-top: 110px;
+    }
+
+    .result_pdf {
+        font-family: 'Courier New', Courier, monospace;
+        color: black;
+        font-size: large;
+        background-color: rgba(202, 68, 202, 0.753); 
+        text-align: center; 
+        margin-top: 5px;
+        padding: 10px 10px 10px 10px;
+        width: 200px;
+        height: auto;
+        border-radius: 10px;
+    }
+    
+</style>
+</head>
+
+<body>
+    <div>
+        <div>
+            <div class="navbar">
+                <a href="/">
+                    <img src="{{ url_for('static', filename='logo.png') }}" class="logo">
+                </a>
+                <ul style="font-family: 'Courier New', Courier, monospace;">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/profile">Profile</a></li>
+                    <li><a href="/works">Works</a></li>
+                    <li><a href="/contacts">Contacts</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="algo">
+        <div class="col">
+            <p class="label">SORTING ALGORITHM</p>
+            <p class="desc">Choose a sorting algorithm.</p>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <a href="/bubblesort" class="button button1" style="margin-top: 15px;">Bubble Sort</a>
+        <a href="/insertionsort" class="button button1" style="margin-top: 15px;">Insertion Sort</a>
+        <a href="/selectionsort" class="button button1" style="margin-top: 15px;">Selection Sort</a>
+        <a href="/mergesort" class="button button1" style="margin-top: 15px;">Merge Sort</a>
+        <a href="/quick_sort" class="button button1" style="margin-top: 15px;">Quick Sort</a>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <p class="result_label"> To access the result of Group 1's sort algorithm comparison, click the “Results” to download the file:</p>
+    </div>
+
+    <center>
+    <div class="result_pdf">
+        <a href="{{url_for('download_sort')}}" download style="color: black; text-decoration: none;">Results</a>
+    </div>
+    </center>
+    
+</body>
+</html>

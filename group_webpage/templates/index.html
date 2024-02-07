@@ -8,7 +8,11 @@
         background: url('static/index.png') no-repeat center fixed;
         background-size: cover;
         font-family: 'Courier New', monospace;
-        overflow: hidden;
+    }
+
+    body::-webkit-scrollbar {
+        width: 0px;
+        height: 0px;
     }
 
     .container {
@@ -20,8 +24,8 @@
 
     .content {
         position: absolute;
-        top: 67%;
-        left: 30%;
+        top: -60%;
+        left: 50%;
         transform: translate(-50%, -50%);
     }
 
@@ -116,6 +120,7 @@
 
     .bgtext {
         position: relative;
+        display: block;
         width: 100%;
         max-width: 100%; 
         height: auto; 
@@ -142,6 +147,9 @@
 
     <div class="container">
         <img src="{{ url_for('static', filename='bgtext.png') }}" class="bgtext">
+    </div>
+
+    <div class="container" style="height: 10vw;">
         <div class="content">
             <div style="display: block; font-family: 'Courier New', monospace;">
                 <a href="/works">

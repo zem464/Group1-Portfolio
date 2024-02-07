@@ -17,6 +17,11 @@
         width: 100%;
     }
 
+    body::-webkit-scrollbar {
+        width: 0px;
+        height: 0px;
+    }
+
     .column1 {
         width: 50%; 
         box-sizing: border-box; 
@@ -128,6 +133,38 @@
         width: 358px;
     }
 
+    .group-pic-cont{
+        display: block; 
+        flex-wrap: wrap; 
+        text-align: center;
+        border: black;
+    }
+
+    .group-pic {
+        border-radius: 5px;
+        border-width: 5px;
+        border-color: #D7B9D5;
+        width: 30%; 
+        height: "auto";
+    }
+
+    .mem-cont {
+        display: flex; 
+        flex-wrap: wrap;
+    }
+
+    .web:hover {
+        transform: scale(1.2);
+        transition: 1.5s;
+    }
+
+@media screen and (max-width:768px) {
+    .mem-cont {
+        display: block; 
+        flex-wrap: wrap;
+    }
+}
+
 </style>
 
 <body>
@@ -149,18 +186,21 @@
 
     <p style="font-family: Courier New, monospace; text-align: center;"><b>Members</b></p>
 
-    <div style="display: block; flex-wrap: wrap; text-align: center;">
-    <img src="https://scontent.fmnl3-3.fna.fbcdn.net/v/t1.15752-9/403415225_1077682820249014_2895983953588443522_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeElDWG5dywglkhG3tUKEIpWYZrNR-5tRothms1H7m1GixUl3equFF18Bi3g7-57qhjQCiygreQXXO6sjHM15hbi&_nc_ohc=CCdhHD504W0AX-4_rwO&_nc_ht=scontent.fmnl3-3.fna&oh=03_AdTCZ7jC1KxyXlvls3eKEsvnxDe5nS1yE6OazEoU0K8WYA&oe=6597BD54" alt="Group 1" width= "300px"; height="400px";>
+    <div class="group-pic-cont">
+        <img src="static/group-pic.jpg" alt="Group 1" class="group-pic">
     </div>
-    <p class= 'group_desc'> 7 Struggling Students</p>
+    <p class= 'group_desc'> 7 Struggling Students </p>
+    <p class="group_desc" style="background-color: #D7B9D5; padding-top: 5px;">Click on the Photos of the members to redirect on their respective websites</p>
     
     <hr style="margin: 10px;">
 
-    <div style="display: flex; flex-wrap: wrap;">
+    <div class="mem-cont">
 
         <div class="column1">
             <div class="main">
-                <img src="static/leigh.png" alt="Leigh" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                <a href="https://fleighbaay.pythonanywhere.com/index" class="web">
+                    <img src="static/leigh.png" alt="Leigh" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                </a>
                 <ul style="color: white">
                     <p style="color: white; font-style: normal; padding-right: 175px;">
                         <b class="name">Frances Leigh G. Baay</b>
@@ -177,7 +217,9 @@
             </div>
             
             <div class="main">
-                <img src="static/ken.png" alt="Ken" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                <a href="https://pororoar.pythonanywhere.com/" class="web">
+                    <img src="static/ken.png" alt="Ken" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                </a>
                 <ul style="color: white">
                     <p style="color: white; font-style: normal; padding-right: 175px;">
                         <b class="name">Ken Andrea G. Legaspi</b>
@@ -194,7 +236,9 @@
             </div>
 
             <div class="main">
-                <img src="static/elle.png" alt="Elle" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                <a href="https://elleee11.pythonanywhere.com/" class="web">
+                    <img src="static/elle.png" alt="Elle" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                </a>
                 <ul style="color: white">
                     <p style="color: white; font-style: normal; padding-right: 175px;">
                         <b class="name">Ella Marie A. Mallari</b>
@@ -211,7 +255,9 @@
             </div>
 
             <div class="main">
-                <img src="static/iris.png" alt="Iris" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                <a href="https://zimm464.pythonanywhere.com/" class="web">
+                    <img src="static/iris.png" alt="Iris" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                </a>
                 <ul style="color: white">
                     <p style="color: white; font-style: normal; padding-right: 175px;">
                         <b class="name" style="letter-spacing: 0px;">Zemerelin Iris M. Membrere</b>
@@ -231,7 +277,9 @@
         
         <div class="column2">
             <div class="main">
-                <img src="static/kat.png" alt="Kat" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                <a href="http://httpktrna.pythonanywhere.com/" class="web">
+                    <img src="static/kat.png" alt="Kat" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                </a>
                 <ul style="color: white">
                     <p style="color: white; font-size: medium; font-style: normal; padding-right: 175px;">
                         <b class="name">Katrina B. Pabuna</b>
@@ -248,7 +296,9 @@
             </div>
 
             <div class="main">
-                <img src="static/kai.png" alt="Kai" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                <a href="https://Tokitough.pythonanywhere.com/" class="web">
+                    <img src="static/kai.png" alt="Kai" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                </a>
                 <ul style="color: white">
                     <p style="color: white; font-size: medium; font-style: normal; padding-right: 175px;">
                         <b class="name">Jhon Kaiser R. Sajo</b>
@@ -265,7 +315,9 @@
             </div>
 
             <div class="main">
-                <img src="static/bekah.png" alt="Bekah" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                <a href="https://sevialrebekahjoy.pythonanywhere.com/" class="web">
+                    <img src="static/bekah.png" alt="Bekah" width="200px"; height="200px"; style = "display: block; margin: 20px;">
+                </a>
                 <ul style="color: white">
                     <p style="color: white; font-size: medium; font-style: normal; padding-right: 175px;" >
                         <b class="name">Rebekah Joy E. Sevial</b>
